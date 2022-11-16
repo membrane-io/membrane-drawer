@@ -1,6 +1,6 @@
 {
   "dependencies": {},
-
+  "lockSchema": true,
   "schema": {
     "types": [
       {
