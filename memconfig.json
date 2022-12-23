@@ -1,6 +1,4 @@
 {
-  "dependencies": {},
-
   "schema": {
     "types": [
       {
@@ -21,8 +19,8 @@
                 "type": "Ref",
                 "ofType": "Void"
               }
-          ],
-            "hints": {} 
+            ],
+            "hints": {}
           },
           {
             "name": "remove",
@@ -85,18 +83,20 @@
           {
             "name": "name",
             "type": "String",
-            "hints": { "primary": true } 
+            "hints": {
+              "primary": true
+            }
           },
           {
             "name": "node",
             "type": "Ref",
             "ofType": "String",
-            "hints": { "primary": true } 
+            "hints": {
+              "primary": true
+            }
           }
         ]
-
       }
     ]
   }
 }
-
