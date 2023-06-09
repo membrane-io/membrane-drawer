@@ -34,6 +34,20 @@
                 "type": "String"
               }
             ]
+          },
+          {
+            "name": "rename",
+            "type": "Void",
+            "params": [
+              {
+                "name": "oldName",
+                "type": "String"
+              },
+              {
+                "name": "newName",
+                "type": "String"
+              }
+            ]
           }
         ],
         "fields": [
@@ -53,14 +67,14 @@
           {
             "name": "page",
             "description": "A page of stored nodes",
-            "type": "NodePage",
+            "type": "Page",
             "hints": {}
           }
         ],
         "events": []
       },
       {
-        "name": "NodePage",
+        "name": "Page",
         "fields": [
           {
             "name": "items",
@@ -70,7 +84,7 @@
           {
             "name": "next",
             "type": "Ref",
-            "ofType": "NodePage"
+            "ofType": "Page"
           }
         ]
       },
