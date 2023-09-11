@@ -15,7 +15,7 @@ const state = _state as State;
 state.items = state.items ?? {};
 
 export const Root = {
-  put: ({ args: { node, name } }) => {
+  put: ({ node, name }) => {
     let key: string = name;
     let i = name ? 2 : 1;
     while (!key || state.items[key] !== undefined) {
@@ -24,17 +24,25 @@ export const Root = {
     state.items[key] = { node, tags: [] };
     return key;
   },
-  remove: ({ args: { name } }) => {
+  remove: ({ name }) => {
     delete state.items[name];
   },
-  one: ({ args: { name } }) => state.items[name],
-  rename: ({ args: { newName, oldName } }) => {
+  removeMatching: ({ regex }) => {
+    const re = new RegExp(regex);
+    for (const name of Object.keys(state.items)) {
+      if (re.test(name)) {
+        delete state.items[name];
+      }
+    }
+  },
+  one: ({ name }) => state.items[name],
+  rename: ({ newName, oldName }) => {
     if (newName !== oldName) {
       state.items[newName] = state.items[oldName];
       delete state.items[oldName];
     }
   },
-  page: ({ args: { tag } }) => {
+  page: ({ tag }) => {
     return {
       items: Object.entries(state.items)
         .filter((entry) => !tag || entry[1].tags.includes(tag))

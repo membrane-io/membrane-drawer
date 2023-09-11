@@ -48,6 +48,16 @@
                 "type": "String"
               }
             ]
+          },
+          {
+            "name": "removeMatching",
+            "type": "Void",
+            "params": [
+              {
+                "name": "regex",
+                "type": "String"
+              }
+            ]
           }
         ],
         "fields": [
