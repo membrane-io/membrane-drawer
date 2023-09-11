@@ -3,6 +3,10 @@ import { state as _state, root } from "membrane";
 interface Item {
   node: any;
   tags: string[];
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 }
 interface State {
   items: { [key: string]: Item };
@@ -15,13 +19,20 @@ const state = _state as State;
 state.items = state.items ?? {};
 
 export const Root = {
-  put: ({ node, name }) => {
+  put: ({ node, name, x, y, width, height }) => {
     let key: string = name;
     let i = name ? 2 : 1;
     while (!key || state.items[key] !== undefined) {
       key = `${name ?? "node"}${i++}`;
     }
-    state.items[key] = { node, tags: [] };
+    state.items[key] = {
+      node,
+      tags: [],
+      x: x ?? 10,
+      y: y ?? 10,
+      width: width ?? 320,
+      height: height ?? 240,
+    };
     return key;
   },
   remove: ({ name }) => {
@@ -35,6 +46,13 @@ export const Root = {
       }
     }
   },
+  move: ({ name, x, y, width, height }) => {
+    const item = state.items[name];
+    item.x = x ?? item.x;
+    item.y = y ?? item.y;
+    item.width = width ?? item.width;
+    item.height = height ?? item.height;
+  },
   one: ({ name }) => state.items[name],
   rename: ({ newName, oldName }) => {
     if (newName !== oldName) {
@@ -46,10 +64,10 @@ export const Root = {
     return {
       items: Object.entries(state.items)
         .filter((entry) => !tag || entry[1].tags.includes(tag))
-        .map(([name, { node, tags }]) => ({
+        .map(([name, item]) => ({
           gref: root.one({ name }),
           name,
-          node,
+          ...item,
         })),
       // TODO: paginate
       next: null,

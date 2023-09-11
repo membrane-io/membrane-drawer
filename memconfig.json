@@ -14,12 +14,33 @@
             "params": [
               {
                 "name": "name",
-                "type": "String"
+                "type": "String",
+                "optional": false
               },
               {
                 "name": "node",
                 "type": "Ref",
                 "ofType": "Void"
+              },
+              {
+                "name": "x",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "y",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "width",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "height",
+                "type": "Int",
+                "optional": true
               }
             ],
             "hints": {}
@@ -56,6 +77,32 @@
               {
                 "name": "regex",
                 "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "move",
+            "type": "Void",
+            "params": [
+              {
+                "name": "name",
+                "type": "String"
+              },
+              {
+                "name": "x",
+                "type": "Int"
+              },
+              {
+                "name": "y",
+                "type": "Int"
+              },
+              {
+                "name": "width",
+                "type": "Int"
+              },
+              {
+                "name": "height",
+                "type": "Int"
               }
             ]
           }
@@ -117,6 +164,34 @@
             "name": "node",
             "type": "Ref",
             "ofType": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "x",
+            "type": "Float",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "y",
+            "type": "Float",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "width",
+            "type": "Float",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "height",
+            "type": "Float",
             "hints": {
               "primary": true
             }
