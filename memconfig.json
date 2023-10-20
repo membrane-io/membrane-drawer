@@ -125,7 +125,13 @@
             "name": "page",
             "description": "A page of stored nodes",
             "type": "Page",
-            "hints": {}
+            "hints": {},
+            "params": [
+              {
+                "name": "tag",
+                "type": "String"
+              }
+            ]
           }
         ],
         "events": []
