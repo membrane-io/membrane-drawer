@@ -129,7 +129,8 @@
             "params": [
               {
                 "name": "tag",
-                "type": "String"
+                "type": "String",
+                "optional": true
               }
             ]
           }
