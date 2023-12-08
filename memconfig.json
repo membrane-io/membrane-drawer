@@ -5,7 +5,7 @@
     "types": [
       {
         "name": "Root",
-        "description": "Store nodes for future use",
+        "description": "Store and manage nodes for future use",
         "actions": [
           {
             "name": "put",
@@ -68,7 +68,8 @@
                 "name": "newName",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Renames a stored node by name"
           },
           {
             "name": "removeMatching",
@@ -78,7 +79,8 @@
                 "name": "regex",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Removes stored nodes matching a provided regex pattern"
           },
           {
             "name": "move",
@@ -104,13 +106,14 @@
                 "name": "height",
                 "type": "Int"
               }
-            ]
+            ],
+            "description": "Moves a stored node to a new position"
           }
         ],
         "fields": [
           {
             "name": "one",
-            "description": "The collection of stored nodes",
+            "description": "The collection of stored nodes, accessible by name",
             "type": "Ref",
             "ofType": "String",
             "params": [
@@ -123,7 +126,7 @@
           },
           {
             "name": "page",
-            "description": "A page of stored nodes",
+            "description": "A page of stored nodes, optionally filtered by tag",
             "type": "Page",
             "hints": {},
             "params": [
@@ -158,14 +161,16 @@
           {
             "name": "gref",
             "type": "Ref",
-            "ofType": "Item"
+            "ofType": "Item",
+            "description": "Reference to another item"
           },
           {
             "name": "name",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The name of the item"
           },
           {
             "name": "node",
@@ -173,35 +178,40 @@
             "ofType": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "Reference to a node as a string"
           },
           {
             "name": "x",
             "type": "Float",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The x-coordinate of the item"
           },
           {
             "name": "y",
             "type": "Float",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The y-coordinate of the item"
           },
           {
             "name": "width",
             "type": "Float",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The width of the item"
           },
           {
             "name": "height",
             "type": "Float",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The height of the item"
           }
         ]
       }
